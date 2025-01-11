@@ -1,6 +1,6 @@
 from flask_restx import fields, Model
 
-from rest.namespaces import namespace
+from rest import namespace
 
 product = Model('Product', {
     'id': fields.Integer(required=True, example=6),
