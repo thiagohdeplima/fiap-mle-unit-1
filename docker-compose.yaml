@@ -1,0 +1,12 @@
+networks:
+  application: {}
+
+services:
+  restapi:
+    build: .
+    networks:
+    - application
+    ports:
+    - "8080:8080"
+    volumes:
+    - .:/srv/app
