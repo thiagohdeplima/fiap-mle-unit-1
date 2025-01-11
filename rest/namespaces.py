@@ -15,5 +15,9 @@ class Products(Resource):
         'id': 6,
         'control': 'vv_Tinto',
         'name': 'Tinto',
+        'quantities': {
+            'quantity': 100,
+            'year': 2023
+          }
       }
     ]
