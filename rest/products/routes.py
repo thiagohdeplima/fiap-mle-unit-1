@@ -7,7 +7,7 @@ import rest.products.models as models
 class Products(Resource):
   @namespace.marshal_list_with(models.product)
   def get(self):
-    '''List all products'''
+    '''Lista todos os produtos produzidos'''
 
     return [
       {
@@ -22,7 +22,7 @@ class Products(Resource):
 class ProductById(Resource):
   @namespace.marshal_list_with(models.product_quantity)
   def get(self, id):
-    '''Return all quantities of a product by year'''
+    '''Dado um ID de produto, retorna a quantidade produzida por ano'''
 
     return {
       'id': id,

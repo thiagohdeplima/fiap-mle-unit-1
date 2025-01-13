@@ -7,7 +7,7 @@ import rest.exports.models as models
 class Export(Resource):
   @namespace.marshal_list_with(models.exports)
   def get(self):
-    '''List all exports'''
+    '''Lista todas as exportações por país'''
 
     return [
       {
