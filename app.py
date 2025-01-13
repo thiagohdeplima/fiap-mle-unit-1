@@ -14,5 +14,7 @@ api = Api(app,
 api.add_namespace(rest.exports.routes.namespace)
 api.add_namespace(rest.products.routes.namespace)
 
+app.config.SWAGGER_UI_DOC_EXPANSION = 'list'
+
 if __name__ == '__main__':
   app.run(debug=True, port=8080)
