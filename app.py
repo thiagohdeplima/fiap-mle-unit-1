@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_restx import Api
 
+from rest import authorizations
+
 import rest.exports.routes
 import rest.products.routes
 
@@ -9,6 +11,7 @@ api = Api(app,
   version='1.0',
   title='EMBRAPA Data API',
   description='API para acesso à dados públicos ingeridos da EMBRAPA',
+  authorizations=authorizations,
 )
 
 api.add_namespace(rest.exports.routes.namespace)

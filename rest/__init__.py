@@ -1,0 +1,5 @@
+authorizations = {
+  'BasicAuth': {
+    'type': 'basic'
+  }
+}
