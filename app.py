@@ -14,6 +14,8 @@ api = Api(app,
 api.add_namespace(rest.exports.routes.namespace)
 api.add_namespace(rest.products.routes.namespace)
 
+app.config.RESTX_MASK_HEADER = False
+app.config.RESTPLUS_MASK_SWAGGER = False
 app.config.SWAGGER_UI_DOC_EXPANSION = 'list'
 
 if __name__ == '__main__':
