@@ -5,7 +5,7 @@ from flask_restx import Resource, reqparse, inputs
 from rest.products import namespace
 import rest.products.models as models
 
-@namespace.route('/')
+@namespace.route('')
 class Products(Resource):
   @namespace.marshal_list_with(models.product)
   def get(self):
