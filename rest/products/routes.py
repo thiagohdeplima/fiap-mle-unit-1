@@ -20,13 +20,13 @@ class Products(Resource):
       }
     ]
 
-productByIdParams = reqparse.RequestParser()
-productByIdParams.add_argument('year_to', type=inputs.int_range(1970, datetime.now().year), required=False, help='Busca somente quantidades a partir deste ano')
-productByIdParams.add_argument('year_from', type=inputs.int_range(1970, datetime.now().year), required=False, help='Busca somente quantidades atee deste ano')
+getProductByIdParams = reqparse.RequestParser()
+getProductByIdParams.add_argument('year_to', type=inputs.int_range(1970, datetime.now().year), required=False, help='Busca somente quantidades a partir deste ano')
+getProductByIdParams.add_argument('year_from', type=inputs.int_range(1970, datetime.now().year), required=False, help='Busca somente quantidades atee deste ano')
 
 @namespace.route('/<int:id>/quantities')
 class ProductById(Resource):
-  @namespace.expect(productByIdParams)
+  @namespace.expect(getProductByIdParams)
   @namespace.marshal_list_with(models.product_quantity)
   def get(self, id):
     '''Dado um ID de produto, retorna a quantidade produzida por ano'''
