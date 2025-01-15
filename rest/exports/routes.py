@@ -18,6 +18,7 @@ class Export(Resource):
         "id": 6,
         "country": "Portugal",
         "country_code": "PT",
+        "category": "Vinhos de Mesa",
         "quantities": [
           {
             "unit": "kg",
