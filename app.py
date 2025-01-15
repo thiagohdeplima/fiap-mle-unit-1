@@ -5,6 +5,7 @@ from rest import authorizations
 
 import rest.exports.routes
 import rest.products.routes
+import rest.process.routes
 
 app = Flask(__name__)
 api = Api(app,
@@ -16,6 +17,7 @@ api = Api(app,
 
 api.add_namespace(rest.exports.routes.namespace)
 api.add_namespace(rest.products.routes.namespace)
+api.add_namespace(rest.process.routes.namespace)
 
 app.config.RESTX_MASK_HEADER = False
 app.config.RESTPLUS_MASK_SWAGGER = False
