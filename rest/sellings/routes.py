@@ -10,6 +10,7 @@ import rest.sellings.models as models
 
 @namespace.route('')
 class Sellings(Resource):
+  @namespace.doc(security='Bearer')
   @namespace.expect(rest.params.generic)
   @namespace.marshal_list_with(models.selling)
   def get(self):

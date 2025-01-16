@@ -10,6 +10,7 @@ import rest.products.models as models
 
 @namespace.route('')
 class Products(Resource):
+  @namespace.doc(security='Bearer')
   @namespace.expect(rest.params.generic)
   @namespace.marshal_list_with(models.product)
   def get(self):

@@ -11,6 +11,7 @@ params.add_argument('category', type=str)
 
 @namespace.route('')
 class Export(Resource):
+  @namespace.doc(security='Bearer')
   @namespace.expect(params)
   @namespace.marshal_list_with(models.exports)
   def get(self):
