@@ -6,6 +6,7 @@
     - [Data Crawler](#data-crawler)
     - [Operation](#operation)
     - [Training](#training)
+  - [Testando a solução](#testando-a-solução)
 
 
 ## Introdução
@@ -79,3 +80,16 @@ Este camada é consumidora da REST API e possui modelos de Machine Learning resp
 Seu funcionamento é acionado sob demanda, e sempre que é executada, obtém dados disponíveis por meio da REST API, treina os modelos preditivos, e uma vez que os modelos estejam treinados, seu resultado é exportado para um arquivo [pickle](https://docs.python.org/3/library/pickle.html) que é versionado e enviado à um Bucket de S3.
 
 A REST API, por sua vez, sempre que encontrar este arquivo irá carregá-lo e disponibilizar seus resultados por meio de outros endpoints desta API.
+
+## Testando a solução
+
+Há uma versão de teste da REST API executando na plataforma Render, que pode ser acessada por meio [desta URL](https://fiap-mle-unit-1.onrender.com). Na página inicial da URL supramencionada haverá um Swagger, por meio do qual pode ser vista uma documentação de todos os endpoints da API.
+
+### Autenticação
+
+É importante mencionar que esta API é autenticada por JWT, então, para que as requisições possam funcionar corretamente, você deverá:
+
+1. Acessar a plataforma [jwt.io](https://jwt.io/)
+2. Na seção _VERIFY SIGNATURE_, altere o conteúdo `your-256-bit-secret` por `this_is_the_default_key`
+3. Copie o Token JWT
+4. Na tela do Swagger, clique em _Authorize_, e no campo _Value_, preencha com o conteúdo `Bearer JWT`, substituindo `JWT` pelo token copiado no passo 3
