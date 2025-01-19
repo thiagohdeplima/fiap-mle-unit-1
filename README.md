@@ -76,4 +76,6 @@ Futuramente, a REST API também irá disponibilizar o resultado das análises pr
 
 Este camada é consumidora da REST API e possui modelos de Machine Learning responsáveis por realizar análises preditivas utilizando os dados consumidos desta API.
 
+Seu funcionamento é acionado sob demanda, e sempre que é executada, obtém dados disponíveis por meio da REST API, treina os modelos preditivos, e uma vez que os modelos estejam treinados, seu resultado é exportado para um arquivo [pickle](https://docs.python.org/3/library/pickle.html) que é versionado e enviado à um Bucket de S3.
 
+A REST API, por sua vez, sempre que encontrar este arquivo irá carregá-lo e disponibilizar seus resultados por meio de outros endpoints desta API.
