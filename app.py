@@ -21,7 +21,6 @@ api = Api(app,
   authorizations=authorizations,
 )
 
-
 api.add_namespace(rest.exports.routes.namespace)
 api.add_namespace(rest.products.routes.namespace)
 api.add_namespace(rest.process.routes.namespace)
