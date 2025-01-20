@@ -1,8 +1,8 @@
 
 def get_products():
+  # TODO: Load this data from a repository integrated with PostgreSQL
+
   return [
-# The above code is using multi-line comments in Python, which are denoted by three consecutive pound
-# signs (`
     {
         "id": 1,
         "control": "VINHO DE MESA",
