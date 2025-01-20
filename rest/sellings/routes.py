@@ -14,7 +14,7 @@ class Sellings(Resource):
   @namespace.expect(rest.params.generic)
   @namespace.marshal_list_with(models.selling)
   def get(self):
-    '''Lista todos os produtos produzidos'''
+    '''Lista todos os dados de comercialização'''
 
     return [
       {
