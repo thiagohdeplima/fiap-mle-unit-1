@@ -2,11 +2,14 @@ from datetime import datetime
 
 from flask_restx import Resource, reqparse, inputs
 
+import core.product
+
 from rest.products import namespace
 
 import rest.models
 import rest.params
 import rest.products.models as models
+
 
 @namespace.route('')
 class Products(Resource):
@@ -16,19 +19,5 @@ class Products(Resource):
   def get(self):
     '''Lista todos os produtos produzidos'''
 
-    return [
-      {
-        'id': 6,
-        'control': 'vv_Tinto',
-        'name': 'Tinto',
-        'type': 'Vinho de Mesa',
-        'quantities': [
-          {
-            'unit': 'kg',
-            'quantity': 100,
-            'year': 2020
-          }
-        ]
-      }
-    ]
+    return core.product.get_products()
 
