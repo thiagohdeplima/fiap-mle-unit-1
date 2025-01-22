@@ -2,6 +2,8 @@ from flask_restx import Resource, reqparse, inputs
 
 from rest.exports import namespace
 
+import core.export
+
 import rest.models
 import rest.params
 import rest.exports.models as models
@@ -17,18 +19,4 @@ class Export(Resource):
   def get(self):
     '''Lista todas as exportações por país'''
 
-    return [
-      {
-        "id": 6,
-        "country": "Portugal",
-        "country_code": "PT",
-        "category": "Vinhos de Mesa",
-        "quantities": [
-          {
-            "unit": "kg",
-            "quantity": 100,
-            "year": 2020
-          }
-        ]
-      }
-    ]
+    return core.export.get_exports()
