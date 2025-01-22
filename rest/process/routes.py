@@ -4,6 +4,8 @@ from flask_jwt_extended import jwt_required
 
 from rest.process import namespace
 
+import core.process
+
 import rest.models
 import rest.params
 import rest.process.models as models
@@ -20,18 +22,4 @@ class Process(Resource):
   def get(self):
     '''Uvas viníferas processadas'''
 
-    return [
-      {
-        'id': 6,
-        'control': 'ti_Alicante',
-        'name': 'Alicante Bouschet',
-        'type': 'Tintas',
-        'quantities': [
-          {
-            'unit': 'kg',
-            'quantity': 4108858,
-            'year': 2023
-          }
-        ]
-      }
-    ]
+    return core.process.get_process()
