@@ -1,6 +1,6 @@
-from datetime import datetime
+from flask_restx import Resource
 
-from flask_restx import Resource, reqparse, inputs
+from flask_jwt_extended import jwt_required
 
 import core.sellings
 
@@ -12,6 +12,7 @@ import rest.sellings.models as models
 
 @namespace.route('')
 class Sellings(Resource):
+  @jwt_required()
   @namespace.doc(security='Bearer')
   @namespace.expect(rest.params.generic)
   @namespace.marshal_list_with(models.selling)

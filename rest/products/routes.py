@@ -1,6 +1,6 @@
-from datetime import datetime
+from flask_restx import Resource
 
-from flask_restx import Resource, reqparse, inputs
+from flask_jwt_extended import jwt_required
 
 import core.product
 
@@ -13,6 +13,7 @@ import rest.products.models as models
 
 @namespace.route('')
 class Products(Resource):
+  @jwt_required()
   @namespace.doc(security='Bearer')
   @namespace.expect(rest.params.generic)
   @namespace.marshal_list_with(models.product)

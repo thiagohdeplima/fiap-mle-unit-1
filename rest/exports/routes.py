@@ -1,4 +1,6 @@
-from flask_restx import Resource, reqparse, inputs
+from flask_restx import Resource
+
+from flask_jwt_extended import jwt_required
 
 from rest.exports import namespace
 
@@ -13,6 +15,7 @@ params.add_argument('category', type=str)
 
 @namespace.route('')
 class Export(Resource):
+  @jwt_required()
   @namespace.doc(security='Bearer')
   @namespace.expect(params)
   @namespace.marshal_list_with(models.exports)
