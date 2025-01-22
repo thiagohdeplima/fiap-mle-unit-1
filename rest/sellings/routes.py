@@ -2,6 +2,8 @@ from datetime import datetime
 
 from flask_restx import Resource, reqparse, inputs
 
+import core.sellings
+
 from rest.sellings import namespace
 
 import rest.models
@@ -16,19 +18,4 @@ class Sellings(Resource):
   def get(self):
     '''Lista todos os dados de comercialização'''
 
-    return [
-      {
-        'id': 6,
-        'control': 'vv_Tinto',
-        'name': 'Tinto',
-        'type': 'Vinho de Mesa',
-        'quantities': [
-          {
-            'unit': 'kg',
-            'quantity': 100,
-            'year': 2020
-          }
-        ]
-      }
-    ]
-
+    return core.sellings.get_sellings()
